@@ -10,7 +10,8 @@ function computerPlay(){
 }
 
 
-
+let pp = 0;
+let cp = 0;
 
 function round(playerSelection, computerSelection){
     let ps = playerSelection.trim().toLowerCase();
@@ -21,14 +22,24 @@ function round(playerSelection, computerSelection){
     } else if(ps === "rock"){
         if(cs === "scissors"){
             pwin=true;
+            pp++;
+            console.log("Player wins, rock beats scissors")
+        }else {
+            cp++;
         }
     } else if(ps==="paper"){
         if(cs==="rock"){
             pwin=true;
+            pp++;
+        } else {
+            cp++;
         }
     } else if(ps==="scissors"){
         if(cs==="paper"){
             pwin=true;
+            pp++
+        } else {
+            cp++;
         }
     } else {
         return "ps was WRONG";
@@ -41,24 +52,24 @@ function round(playerSelection, computerSelection){
 }
 
 function game(){
+    const buttons = document.querySelectorAll('button');
 
     let pw = 0;
     let cw = 0;
     for(var i = 0; i < 5; i++){
-        const playerSelection = window.prompt("What's your play?");
+        let playerSelection = "";
         const computerSelection = computerPlay();
-        let msg = round(playerSelection,computerSelection);
-        console.log(msg);
-        if(msg.charAt(0)==='P'){
-            pw+=1;
-        } else if(msg.charAt(0)==='C'){
-            cw+=1;
-        }
 
+        buttons.forEach((button)=>{
+            button.addEventListener('click', () => {
+                playerSelection = button.className;
+                round(playerSelection,computerSelection);
+            });
+        });
     }
-    if(pw>cw){
+    if(pp==5){
         console.log(`Player wins! They had ${pw +" wins while Computer had " + cw}`);
-    } else if (cw>pw){
+    } else if (cp==5){
         console.log(`Computer wins! They had ${cw +" wins while Player had " + pw}`);
     }
 }
