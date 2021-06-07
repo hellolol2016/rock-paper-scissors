@@ -10,7 +10,22 @@
         <button class="paper">Paper</button>
         <button class="scissors">Scissors</button>
 
+        <h3>Score</h3>
+        <p class="pp">Player:</p>
+        <p class="cp">Computer:</p>
+        <h3>Result</h3>
+        <p class="msg"></p>
+        <h2 class="winner"></h2>
+        <div class="restart" style="display:none; color:red; height:100px;width:200px;">Restart Game!</div>
         <script src="scripts.js">
         </script>
+        <!-- <script>
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach((button)=>{
+                button.addEventListener('click',()=>{
+                    console.log(button.className)
+                });
+            });
+        </script> -->
     </body>
 </html>
