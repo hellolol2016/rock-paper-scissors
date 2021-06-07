@@ -75,7 +75,7 @@ buttons.forEach((button)=>{
                 winMessage.textContent="Player wins with 5 points!"
             }
             restart.style.display = "block";
-            restart.addEventListener('click',console.log("reset"))
+            restart.addEventListener('click',reset)
         }
     });
 });
